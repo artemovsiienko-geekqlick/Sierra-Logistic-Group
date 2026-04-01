@@ -16,15 +16,24 @@
             <a href="#" class="logo">
                 <img src="media/logo_h_monowht.svg" class="logo__img header__logo-img" alt="Sierra Logistic Group">
             </a>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li><a href="#services" class="nav__link">Services</a></li>
-                    <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
-                    <li><a href="#about" class="nav__link">About Us</a></li>
-                    <li><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#contact" class="btn btn-primary header__btn">Get a Quote</a>
+            
+            <button class="burger" aria-label="Toggle menu">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+
+            <div class="header__nav-wrap">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="#services" class="nav__link">Services</a></li>
+                        <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
+                        <li><a href="#about" class="nav__link">About Us</a></li>
+                        <li><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#contact" class="btn btn-primary header__btn">Get a Quote</a>
+            </div>
         </div>
     </header>
 
@@ -99,7 +108,6 @@
     <section id="how-it-works" class="how-it-works bg-light">
         <div class="container how-it-works__inner">
             <h2 class="section-title text-center">How It Works</h2>
-            
             <div class="flow-wrapper">
                 <div class="flow-line__container">
                     <svg class="flow-line__svg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +119,6 @@
                         </svg>
                     </div>
                 </div>
-
                 <div class="flow-steps">
                     <div class="flow-step">
                         <div class="flow-step__icon-wrap"><span class="flow-step__icon">🔍</span></div>
@@ -200,7 +207,6 @@
                 </div>
             </div>
         </div>
-
         <div class="testimonials-wrapper">
             <div class="carousel-container">
                 <div class="carousel-track">
@@ -240,7 +246,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="carousel-controls">
                     <button class="carousel-btn prev-btn" aria-label="Previous Review">←</button>
                     <button class="carousel-btn next-btn" aria-label="Next Review">→</button>
@@ -252,7 +257,6 @@
     <section id="trusted-by" class="trusted-by">
         <div class="container">
             <h2 class="section-title text-center">Trusted by industry leaders worldwide</h2>
-            
             <div class="trusted-by__logos">
                 <img src="media/placeholder-logo.svg" alt="Trusted Partner" class="trusted-logo">
                 <img src="media/placeholder-logo.svg" alt="Trusted Partner" class="trusted-logo">

@@ -1,18 +1,44 @@
 // DOM Ready
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- Header Scroll Effect & Logo Swap ---
+    // --- Header Scroll Effect, Mobile Menu & Logo Swap ---
     const header = document.querySelector('.header');
     const headerLogoImg = document.querySelector('.header__logo-img'); 
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelectorAll('.nav__link, .header__btn');
+
+    function updateHeaderState() {
+        const isScrolled = window.scrollY > 50;
+        const isMenuOpen = header.classList.contains('header--menu-open');
+
+        if (isScrolled || isMenuOpen) {
             header.classList.add('header--scrolled');
             headerLogoImg.src = 'media/logo_h_blck.svg'; 
         } else {
             header.classList.remove('header--scrolled');
             headerLogoImg.src = 'media/logo_h_monowht.svg'; 
         }
+    }
+
+    window.addEventListener('scroll', updateHeaderState);
+
+    if (burger) {
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('is-active');
+            header.classList.toggle('header--menu-open');
+            updateHeaderState();
+        });
+    }
+
+    // Close menu when a link is clicked on mobile
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if(window.innerWidth <= 992) {
+                burger.classList.remove('is-active');
+                header.classList.remove('header--menu-open');
+                updateHeaderState();
+            }
+        });
     });
 
     // --- Register GSAP ScrollTrigger ---
@@ -29,13 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
     heroContentTl.from('.hero__large-logo', { scale: 0.8, opacity: 0, duration: 1, ease: "back.out(1.7)" })
                  .from('.hero__title', { x: 30, opacity: 0, duration: 0.8 }, '-=0.8')
                  .from('.hero__subtitle', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
-                 // Гарантована поява кнопки з очищенням стилів
                  .from('.hero__actions .btn-primary', { 
                      y: 20, 
                      opacity: 0, 
                      duration: 0.6, 
                      clearProps: "all" 
-                 }, '-=0.6');
+                 }, '-=0.2');
 
     // --- Services Accordion Wow-Effect ---
     const panels = document.querySelectorAll('.service-panel');
